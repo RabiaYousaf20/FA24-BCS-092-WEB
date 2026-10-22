@@ -1,0 +1,47 @@
+/* ---------- Page ---------- */
+body {
+  background-color: #f8f9fa;
+}
+
+/* ---------- Product cards ---------- */
+.product-card {
+  overflow: hidden;                 /* keeps image corners clipped to the card radius */
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.product-card .card-img-top {
+  width: 100%;
+  aspect-ratio: 4 / 3;              /* same image shape on every card, no layout shift */
+  object-fit: cover;                /* crops instead of stretching */
+  background: linear-gradient(135deg, #dee2e6, #adb5bd); /* shows if an image fails to load */
+}
+
+/* Hover lift only on devices that can actually hover (not phones/tablets) */
+@media (hover: hover) {
+  .product-card:hover {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.12) !important; /* !important beats Bootstrap's shadow-sm */
+    transform: translateY(-2px);
+  }
+}
+
+/* ---------- Navbar ---------- */
+.navbar .nav-link {
+  transition: color 0.2s ease;
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-link:focus-visible {
+  color: #0d6efd;
+}
+
+/* ---------- Accessibility: respect reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .product-card,
+  .navbar .nav-link {
+    transition: none;
+  }
+
+  .product-card:hover {
+    transform: none;
+  }
+}
