@@ -1805,3 +1805,163 @@ select {
     font-size: 16px;
   }
 }
+/* =========================================
+   MEGA MENU - "Shop by Category" (no JavaScript)
+   Wide screens (1200px+): full-width panel on :hover / :focus-within
+   Small screens: <details> accordion inside the hamburger menu
+========================================= */
+
+/* Navbar sits in its own layer ABOVE the page (cards, carousel, hover effects).
+   The panel is absolutely positioned, so it never pushes content down. */
+.main-navbar {
+  position: relative;
+  z-index: 2000;
+  background: #fff;
+}
+
+/* Make the <button> look like the other nav links */
+.mega-trigger {
+  background: none;
+  border: 0;
+  cursor: pointer;
+  color: var(--bs-navbar-color);
+}
+
+.mega-trigger:hover,
+.mega-trigger:focus-visible {
+  color: var(--bs-navbar-hover-color);
+}
+
+.mega-trigger:focus-visible {
+  outline: 2px solid #3665f3;
+  outline-offset: 2px;
+}
+
+.mega-trigger .bi {
+  font-size: 0.7em;
+  margin-left: 0.2rem;
+}
+
+/* ---------- Wide screens ---------- */
+@media (min-width: 1200px) {
+  /* <li> must NOT be positioned, so the panel spans the whole navbar */
+  .mega-item {
+    position: static;
+  }
+
+  .mega-accordion {
+    display: none;
+  }
+
+  .mega-panel {
+    display: none;                          /* closed by default */
+    position: absolute;                     /* floats over the page */
+    top: 100%;                              /* right under the navbar */
+    left: 0;
+    right: 0;                               /* full width */
+    z-index: 2001;
+    padding: 1.5rem 3.7% 2rem;
+    background: #fff;
+    border-top: 1px solid #e5e5e5;
+    border-bottom: 1px solid #e5e5e5;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.18);
+    grid-template-columns: repeat(4, 1fr);  /* 4 columns */
+    gap: 1.5rem 2rem;
+  }
+
+  /* Invisible strip filling the small gap between the item and the panel,
+     so the pointer can move into the panel without it closing */
+  .mega-panel::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -0.8rem;
+    height: 0.8rem;
+  }
+
+  /* OPEN: pointer over item/panel, OR keyboard focus anywhere inside */
+  .mega-item:hover .mega-panel,
+  .mega-item:focus-within .mega-panel {
+    display: grid;
+  }
+
+  .mega-item:hover .mega-trigger,
+  .mega-item:focus-within .mega-trigger {
+    color: var(--bs-navbar-hover-color);
+    text-decoration: underline;
+    text-underline-offset: 6px;
+  }
+}
+
+.mega-heading {
+  margin: 0 0 0.6rem;
+  padding-bottom: 0.4rem;
+  font-size: 1rem;
+  font-weight: 700;
+  border-bottom: 2px solid #0654ba;
+}
+
+.mega-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.mega-list a {
+  display: block;
+  padding: 0.3rem 0;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+.mega-list a:hover,
+.mega-list a:focus-visible {
+  color: #0654ba;
+  text-decoration: underline;
+}
+
+/* ---------- Small screens (inside the hamburger) ---------- */
+@media (max-width: 1199.98px) {
+  .mega-trigger,
+  .mega-panel {
+    display: none;
+  }
+
+  .mega-accordion-title {
+    margin: 0;
+    padding: 0.7rem 0.25rem;
+    font-weight: 700;
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  .mega-group {
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  .mega-group summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.7rem 0.25rem 0.7rem 1rem;
+    cursor: pointer;
+    list-style: none;                       /* hide default arrow */
+  }
+
+  .mega-group summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .mega-group summary::after {
+    content: "+";
+    font-weight: 700;
+  }
+
+  .mega-group[open] summary::after {
+    content: "\2212";                       /* minus sign */
+  }
+
+  .mega-group .mega-list {
+    padding: 0 0.25rem 0.6rem 2rem;
+  }
+}

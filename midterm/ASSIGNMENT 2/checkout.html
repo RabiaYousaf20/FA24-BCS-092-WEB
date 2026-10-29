@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Checkout</title>
+
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      padding: 1.5rem 4%;
+      font-family: Arial, Helvetica, sans-serif;
+      color: #191919;
+      background: #fff;
+    }
+
+    h1 { margin-top: 0; }
+
+    /* ---------- Small screens: everything in ONE column ---------- */
+    .checkout-form {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    fieldset {
+      margin: 0;
+      padding: 1rem 1.25rem 1.25rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+
+    legend {
+      padding: 0 0.5rem;
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+
+    /* One row per field: label + input (+ error message under the input) */
+    .field {
+      display: grid;
+      grid-template-columns: 1fr;           /* label ABOVE input on small screens */
+      gap: 0.3rem;
+      margin-bottom: 1rem;
+    }
+
+    label { font-weight: 600; }
+
+    input,
+    select {
+      width: 100%;
+      padding: 0.6rem;
+      font: inherit;
+      border: 1px solid #888;
+      border-radius: 6px;
+      background: #fff;
+    }
+
+    /* Error messages are hidden until the field is touched AND invalid */
+    .error {
+      display: none;
+      color: #c00;
+      font-size: 0.85rem;
+    }
+
+    /* Red border + message ONLY after the user has interacted */
+    input:user-invalid,
+    select:user-invalid {
+      border-color: #c00;
+      border-width: 2px;
+    }
+
+    input:user-invalid ~ .error,
+    select:user-invalid ~ .error {
+      display: block;
+    }
+
+    /* Submit button: full width at every size */
+    .submit-btn {
+      width: 100%;
+      padding: 0.9rem;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #fff;
+      background: #3665f3;
+      border: 0;
+      border-radius: 999px;
+      cursor: pointer;
+    }
+
+    .submit-btn:hover { background: #0654ba; }
+
+    /* ---------- From BP and wider ---------- */
+    @media (min-width: 768px) {
+      /* Two fieldsets side by side; button spans both columns */
+      .checkout-form {
+        grid-template-columns: 1fr 1fr;
+        align-items: start;
+      }
+
+      .submit-btn { grid-column: 1 / -1; }
+
+      /* Labels in a column on the left, inputs on the right */
+      .field {
+        grid-template-columns: 8rem 1fr;
+        align-items: center;
+        column-gap: 1rem;
+      }
+
+      /* Error message sits under the input (right column) */
+      .field .error { grid-column: 2; }
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Checkout</h1>
+
+  <form class="checkout-form" action="#" method="get">
+
+    <!-- ===== Fieldset 1: Contact ===== -->
+    <fieldset>
+      <legend>Contact</legend>
+
+      <div class="field">
+        <label for="fullname">Full name</label>
+        <input type="text" id="fullname" name="fullname" required
+               minlength="3" autocomplete="name" placeholder="Rabia Yousaf">
+        <span class="error">Please enter your full name (at least 3 characters).</span>
+      </div>
+
+      <div class="field">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required
+               autocomplete="email" placeholder="name@example.com">
+        <span class="error">Enter a valid email address.</span>
+      </div>
+
+      <div class="field">
+        <label for="phone">Phone</label>
+        <input type="tel" id="phone" name="phone" required
+               pattern="03[0-9]{2}-[0-9]{7}"
+               title="Format: 03XX-XXXXXXX"
+               autocomplete="tel" placeholder="0300-1234567">
+        <span class="error">Use the format 03XX-XXXXXXX.</span>
+      </div>
+    </fieldset>
+
+    <!-- ===== Fieldset 2: Delivery ===== -->
+    <fieldset>
+      <legend>Delivery</legend>
+
+      <div class="field">
+        <label for="address">Address</label>
+        <input type="text" id="address" name="address" required
+               minlength="5" autocomplete="street-address"
+               placeholder="House #, street, area">
+        <span class="error">Please enter your address.</span>
+      </div>
+
+      <div class="field">
+        <label for="city">City</label>
+        <select id="city" name="city" required>
+          <option value="">Select a city</option>
+          <option value="lahore">Lahore</option>
+          <option value="islamabad">Islamabad</option>
+          <option value="karachi">Karachi</option>
+          <option value="rawalpindi">Rawalpindi</option>
+          <option value="faisalabad">Faisalabad</option>
+        </select>
+        <span class="error">Please choose a city.</span>
+      </div>
+
+      <div class="field">
+        <label for="delivery-date">Delivery date</label>
+        <!-- min = exam date, max = exam date + N days (here N = 7). EDIT THESE TWO DATES -->
+        <input type="date" id="delivery-date" name="delivery_date" required
+               min="2026-11-09" max="2026-11-16">
+        <span class="error">Pick a date from 9 Nov 2026 to 16 Nov 2026.</span>
+      </div>
+    </fieldset>
+
+    <button type="submit" class="submit-btn">Place order</button>
+  </form>
+</body>
+</html>

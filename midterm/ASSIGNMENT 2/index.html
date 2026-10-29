@@ -36,15 +36,14 @@
     </div>
 
     <!-- Right side links and icons -->
-    <div class="top-right">
-      <span><i class="bi bi-truck"></i> 54000</span>
-      <a href="#">Sell <i class="bi bi-chevron-down"></i></a>
-      <a href="#">Watchlist <i class="bi bi-chevron-down"></i></a>
-      <a href="#">My eBay <i class="bi bi-chevron-down"></i></a>
-      <a href="#" aria-label="Notifications"><i class="bi bi-bell"></i></a>
-      <a href="#" aria-label="Shopping cart"><i class="bi bi-cart3"></i></a>
-    </div>
-  </div>
+   <div class="top-right">
+  <span><i class="bi bi-truck"></i> 54000</span>
+  <a href="#">Sell <i class="bi bi-chevron-down"></i></a>
+  <a href="#">Watchlist <i class="bi bi-chevron-down"></i></a>
+  <a href="#">My eBay <i class="bi bi-chevron-down"></i></a>
+  <a href="#" aria-label="Notifications"><i class="bi bi-bell"></i></a>
+  <a href="checkout.html" aria-label="Shopping cart"><i class="bi bi-cart3"></i></a>
+</div>
 
 
   <!-- ===============================
@@ -94,44 +93,183 @@
   </div>
 
 
-  <!-- ===============================
-       3. NAVIGATION BAR
-       Full row on big screens, hamburger menu on tablets and phones
-  ================================ -->
-  <nav class="navbar navbar-expand-xl main-navbar" aria-label="Main navigation">
-    <div class="container-fluid">
+  
+<!-- 3. NAVIGATION BAR -->
+<nav class="navbar navbar-expand-xl main-navbar" aria-label="Main navigation">
+  <div class="container-fluid">
 
-      <!-- The word "Menu" (only shown on small screens) -->
-      <span class="navbar-text d-xl-none fw-bold">Menu</span>
+    <!-- Menu label on smaller screens -->
+    <span class="navbar-text d-xl-none fw-bold">Menu</span>
 
-      <!-- Hamburger button (only shown on small screens) -->
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-        data-bs-target="#mainNavMenu" aria-controls="mainNavMenu"
-        aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+    <!-- Bootstrap hamburger button -->
+    <button class="navbar-toggler" type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#mainNavMenu"
+      aria-controls="mainNavMenu"
+      aria-expanded="false"
+      aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-      <!-- The links. They hide inside the hamburger on small screens -->
-      <div class="collapse navbar-collapse" id="mainNavMenu">
-        <ul class="navbar-nav w-100 justify-content-xl-between">
-          <!-- "active" underlines the page we are currently on -->
-          <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.html">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Saved</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Electronics</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Motors</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Fashion</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Collectibles and art</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Sports</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Health and beauty</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Industrial equipment</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Home and garden</a></li>
-          <li class="nav-item"><a class="nav-link" href="index.html#deals">Deals</a></li>
-          <li class="nav-item"><a class="nav-link" href="product.html">Featured Product</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Sell</a></li>
-        </ul>
-      </div>
+    <!-- Navigation links -->
+    <div class="collapse navbar-collapse" id="mainNavMenu">
+      <ul class="navbar-nav w-100 justify-content-xl-between">
+
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page"
+             href="index.html">Home</a>
+        </li>
+
+        <!-- MEGA MENU -->
+        <li class="nav-item mega-item">
+
+          <button class="nav-link mega-trigger" type="button"
+            aria-haspopup="true">
+            Shop by Category
+            <i class="bi bi-chevron-down" aria-hidden="true"></i>
+          </button>
+
+          <!-- Desktop mega-menu -->
+          <div class="mega-panel">
+
+            <div class="mega-col">
+              <h3 class="mega-heading">Electronics</h3>
+              <ul class="mega-list">
+                <li><a href="#">Laptops</a></li>
+                <li><a href="#">Smartphones</a></li>
+                <li><a href="#">Tablets and eBooks</a></li>
+                <li><a href="#">Headphones and audio</a></li>
+                <li><a href="#">Cameras and lenses</a></li>
+              </ul>
+            </div>
+
+            <div class="mega-col">
+              <h3 class="mega-heading">Motors</h3>
+              <ul class="mega-list">
+                <li><a href="#">Car parts</a></li>
+                <li><a href="#">Floor mats and seat covers</a></li>
+                <li><a href="#">Motorcycle parts</a></li>
+                <li><a href="#">Tools and equipment</a></li>
+                <li><a href="#">Wheels and tires</a></li>
+              </ul>
+            </div>
+
+            <div class="mega-col">
+              <h3 class="mega-heading">Fashion</h3>
+              <ul class="mega-list">
+                <li><a href="#">Women's clothing</a></li>
+                <li><a href="#">Men's clothing</a></li>
+                <li><a href="#">Shoes</a></li>
+                <li><a href="#">Watches</a></li>
+                <li><a href="#">Handbags</a></li>
+              </ul>
+            </div>
+
+            <div class="mega-col">
+              <h3 class="mega-heading">Home and garden</h3>
+              <ul class="mega-list">
+                <li><a href="#">Kitchen and dining</a></li>
+                <li><a href="#">Furniture</a></li>
+                <li><a href="#">Garden and outdoor</a></li>
+                <li><a href="#">Vacuums and cleaning</a></li>
+                <li><a href="#">Home improvement</a></li>
+              </ul>
+            </div>
+
+          </div>
+
+          <!-- Mobile accordion -->
+          <div class="mega-accordion">
+            <p class="mega-accordion-title">Shop by Category</p>
+
+            <details class="mega-group">
+              <summary>Electronics</summary>
+              <ul class="mega-list">
+                <li><a href="#">Laptops</a></li>
+                <li><a href="#">Smartphones</a></li>
+                <li><a href="#">Tablets and eBooks</a></li>
+                <li><a href="#">Headphones and audio</a></li>
+                <li><a href="#">Cameras and lenses</a></li>
+              </ul>
+            </details>
+
+            <details class="mega-group">
+              <summary>Motors</summary>
+              <ul class="mega-list">
+                <li><a href="#">Car parts</a></li>
+                <li><a href="#">Floor mats and seat covers</a></li>
+                <li><a href="#">Motorcycle parts</a></li>
+                <li><a href="#">Tools and equipment</a></li>
+                <li><a href="#">Wheels and tires</a></li>
+              </ul>
+            </details>
+
+            <details class="mega-group">
+              <summary>Fashion</summary>
+              <ul class="mega-list">
+                <li><a href="#">Women's clothing</a></li>
+                <li><a href="#">Men's clothing</a></li>
+                <li><a href="#">Shoes</a></li>
+                <li><a href="#">Watches</a></li>
+                <li><a href="#">Handbags</a></li>
+              </ul>
+            </details>
+
+            <details class="mega-group">
+              <summary>Home and garden</summary>
+              <ul class="mega-list">
+                <li><a href="#">Kitchen and dining</a></li>
+                <li><a href="#">Furniture</a></li>
+                <li><a href="#">Garden and outdoor</a></li>
+                <li><a href="#">Vacuums and cleaning</a></li>
+                <li><a href="#">Home improvement</a></li>
+              </ul>
+            </details>
+          </div>
+
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="#">Saved</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Electronics</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Motors</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Fashion</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Collectibles and art</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Sports</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Health and beauty</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Industrial equipment</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Home and garden</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="index.html#deals">Deals</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="product.html">Featured Product</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Sell</a>
+        </li>
+
+      </ul>
     </div>
-  </nav>
+  </div>
+</nav>
 
 
   <!-- ===============================
