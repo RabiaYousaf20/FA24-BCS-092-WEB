@@ -1965,3 +1965,127 @@ select {
     padding: 0 0.25rem 0.6rem 2rem;
   }
 }
+/* =========================================
+   CART BADGE + MINI CART (Task 3)
+========================================= */
+
+.cart-wrap {
+  position: relative;
+  z-index: 3000;                            /* above the navbar and the mega menu */
+}
+
+#cart-toggle {
+  position: relative;
+  display: inline-block;
+}
+
+.cart-badge {
+  position: absolute;
+  top: -0.55rem;
+  right: -0.7rem;
+  min-width: 1.15rem;
+  padding: 0 0.3rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  line-height: 1.15rem;
+  text-align: center;
+  color: #fff;
+  background: #c00;
+  border-radius: 999px;
+}
+
+.cart-badge[hidden] {
+  display: none;
+}
+
+.mini-cart {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  width: min(22rem, 90vw);
+  margin-top: 0.6rem;
+  padding: 1rem;
+  font-size: 0.9rem;
+  color: #191919;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.2);
+}
+
+.mini-cart[hidden] {
+  display: none;
+}
+
+.mini-cart-title {
+  margin: 0 0 0.6rem;
+  font-size: 1.1rem;
+}
+
+.mini-cart-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-height: 16rem;
+  overflow-y: auto;
+}
+
+.mini-cart-item {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 0.6rem;
+  align-items: center;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #eee;
+}
+
+.mini-cart-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.mini-cart-price {
+  font-weight: 700;
+}
+
+.mini-cart-remove {
+  padding: 0.2rem 0.6rem;
+  font-size: 0.8rem;
+  color: #c00;
+  background: #fff;
+  border: 1px solid #c00;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.mini-cart-remove:hover {
+  color: #fff;
+  background: #c00;
+}
+
+.mini-cart-empty {
+  padding: 0.5rem 0;
+  color: #707070;
+}
+
+.mini-cart-total {
+  margin: 0.8rem 0;
+  text-align: right;
+  font-size: 1rem;
+}
+
+.mini-cart-checkout {
+  display: block;
+  padding: 0.6rem;
+  text-align: center;
+  font-weight: 700;
+  color: #fff;
+  background: #3665f3;
+  border-radius: 999px;
+}
+
+.mini-cart-checkout:hover {
+  text-decoration: none;
+  background: #0654ba;
+}
