@@ -1,0 +1,1807 @@
+/* =========================================
+   1. GENERAL SETTINGS
+   Rules that apply to the whole website
+========================================= */
+
+/* Makes width/height include padding and border (easier sizing) */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;                                /* remove default page margin */
+  font-family: Arial, Helvetica, sans-serif;
+  color: #191919;                           /* dark grey text */
+  background: #fff;
+  max-width: 100%;
+}
+
+/* Links take the colour of their parent and have no underline... */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ...until you hover over them */
+a:hover {
+  text-decoration: underline;
+}
+
+/* Buttons, inputs and dropdowns use the same font as the page */
+button,
+input,
+select {
+  font: inherit;
+}
+
+/* The three header parts always stretch the full width */
+.top-bar,
+.main-header,
+.main-navbar {
+  width: 100%;
+  min-width: 0;
+}
+
+
+/* =========================================
+   2. TOP BAR (sign in, deals, cart)
+========================================= */
+
+.top-bar {
+  min-height: 2.8rem;
+  padding: 0.6rem 3.7%;
+
+  /* Put left links and right links on one row, spread apart */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+
+  border-bottom: 1px solid #e5e5e5;
+  font-size: clamp(0.75rem, 0.9vw, 1rem);   /* text size grows/shrinks with screen */
+}
+
+.top-left,
+.top-right {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: clamp(0.6rem, 1.7vw, 2rem);          /* space between links */
+}
+
+/* The "Sign in" link is blue */
+.top-left a:first-of-type {
+  color: #0654ba;
+}
+
+.top-right i {
+  font-size: 1.15em;
+}
+
+/* Small laptops and tablets */
+@media (max-width: 65rem) {
+  .top-bar {
+    padding-inline: 3%;
+  }
+}
+
+/* Phones: stack left and right links on top of each other */
+@media (max-width: 40rem) {
+  .top-bar {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .top-left,
+  .top-right {
+    gap: 0.8rem;
+  }
+}
+
+/* Very narrow phones */
+@media (max-width: 22rem) {
+  .top-left,
+  .top-right {
+    gap: 0.5rem;
+    font-size: 0.75rem;
+  }
+}
+
+
+/* =========================================
+   3. MAIN HEADER (logo, category button, search)
+========================================= */
+
+.main-header {
+  padding: 1.2rem 3.7%;
+  display: flex;
+  align-items: center;
+  gap: clamp(0.75rem, 1.5vw, 1.5rem);
+  border-bottom: 1px solid #e5e5e5;
+}
+
+/* ----- eBay logo ----- */
+.ebay-logo {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;                           /* never let the logo get squashed */
+
+  font-size: clamp(2.5rem, 4vw, 4.5rem);
+  font-weight: 500;
+  letter-spacing: -0.1em;                   /* pulls the letters closer */
+  line-height: 1;
+}
+
+/* Each letter has its own brand colour */
+.ebay-logo .red    { color: #e53238; }
+.ebay-logo .blue   { color: #0064d2; }
+.ebay-logo .yellow { color: #f5af02; }
+.ebay-logo .green  { color: #86b817; }
+
+/* ----- "Shop by category" button ----- */
+.category-button {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-shrink: 0;
+
+  padding: 0;
+  border: none;
+  background: #fff;
+  color: #555;
+  font-size: clamp(0.8rem, 1vw, 1rem);
+  text-align: left;
+  cursor: pointer;
+}
+
+.category-button i {
+  color: #000;
+}
+
+/* ----- Search area (box + button + Advanced link) ----- */
+.search-area {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.5rem, 1.1vw, 1.25rem);
+  flex: 1 1 0;                              /* takes all the remaining space */
+  min-width: 0;
+}
+
+/* The rounded white search box with a dark border */
+.search-box {
+  display: flex;
+  align-items: center;
+  flex: 1 1 0;
+  min-width: 0;
+  min-height: 3.5rem;
+
+  border: 2px solid #191919;
+  border-radius: 100vw;                     /* fully rounded ends */
+  overflow: hidden;
+}
+
+/* Magnifying glass icon */
+.search-icon {
+  flex-shrink: 0;
+  margin: 0 1rem;
+  color: #777;
+  font-size: 1.2rem;
+}
+
+/* The text field the user types into */
+.search-box input {
+  flex: 1 1 0;
+  width: 0;
+  min-width: 0;
+  padding: 0.5rem 0;
+
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: clamp(0.9rem, 1.2vw, 1.4rem);
+}
+
+.search-box input::placeholder {
+  color: #777;
+  opacity: 1;
+}
+
+/* Camera button (search by image) */
+.camera-button {
+  align-self: stretch;                      /* as tall as the search box */
+  flex-shrink: 0;
+
+  padding: 0 clamp(0.6rem, 1.3vw, 1.5rem);
+  border: none;
+  border-right: 1px solid #ddd;             /* thin line on its right side */
+  background: #fff;
+  font-size: clamp(1rem, 1.4vw, 1.5rem);
+  cursor: pointer;
+}
+
+/* "All Categories" dropdown inside the search box */
+.search-box select {
+  width: 100%;
+  min-width: 0;
+  max-width: 12rem;
+
+  border: none;
+  outline: none;
+  appearance: none;                         /* hides the browser's own arrow */
+  background: #fff;
+  color: #666;
+  font-size: clamp(0.75rem, 0.9vw, 1rem);
+  cursor: pointer;
+}
+
+/* Our own arrow icon for the dropdown (clicks pass through it) */
+.select-arrow {
+  flex-shrink: 0;
+  pointer-events: none;
+}
+
+/* Blue "Search" button */
+.search-button {
+  flex: 0 1 auto;
+  min-width: max-content;
+
+  padding: 0.9em clamp(1rem, 2vw, 2.2rem);
+  border: none;
+  border-radius: 100vw;
+  background: #3665f3;
+  color: #fff;
+  font-size: clamp(0.9rem, 1.1vw, 1.25rem);
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.search-button:hover {
+  background: #2454d8;                      /* darker blue on hover */
+}
+
+/* "Advanced" link */
+.advanced-link {
+  flex-shrink: 0;
+  color: #666;
+  font-size: clamp(0.75rem, 0.9vw, 1rem);
+  white-space: nowrap;                      /* never wrap onto two lines */
+}
+
+/* Small laptops and tablets: search drops to its own full-width row */
+@media (max-width: 65rem) {
+  .main-header {
+    flex-wrap: wrap;
+  }
+
+  .search-area {
+    flex-basis: 100%;
+  }
+}
+
+/* Phones */
+@media (max-width: 40rem) {
+  .main-header {
+    gap: 1rem;
+    padding: 1rem 4%;
+  }
+
+  .ebay-logo {
+    font-size: clamp(2.5rem, 12vw, 3.5rem);
+  }
+
+  .category-button {
+    font-size: 0.85rem;
+  }
+
+  .search-area {
+    flex-wrap: wrap;
+    gap: 0.65rem;
+  }
+
+  .search-box {
+    flex-basis: 100%;
+    min-height: 3rem;
+  }
+
+  .search-icon {
+    margin-inline: 0.75rem;
+  }
+
+  .search-box input {
+    font-size: 1rem;
+  }
+
+  .camera-button {
+    padding-inline: 0.75rem;
+  }
+
+  .search-box select {
+    max-width: 6.5rem;
+    font-size: 0.75rem;
+  }
+
+  .search-button {
+    flex: 1 1 auto;
+  }
+
+  .advanced-link {
+    font-size: 0.85rem;
+  }
+}
+
+/* Very narrow phones */
+@media (max-width: 22rem) {
+  .search-icon {
+    margin-inline: 0.6rem;
+  }
+
+  .search-box input {
+    font-size: 0.85rem;
+  }
+}
+
+
+/* =========================================
+   4. NAVIGATION BAR (Bootstrap navbar)
+========================================= */
+
+.main-navbar {
+  padding: 0.4rem 3.7%;
+  border-bottom: 1px solid #e5e5e5;
+
+  /* Bootstrap colour settings for this navbar */
+  --bs-navbar-color: #333;
+  --bs-navbar-hover-color: #0654ba;
+  --bs-navbar-active-color: #191919;
+  --bs-navbar-nav-link-padding-x: 0.6rem;
+}
+
+/* Line the navbar up with the header above it */
+.main-navbar > .container-fluid {
+  padding-inline: 0;
+}
+
+.main-navbar .nav-link {
+  font-size: clamp(0.8rem, 1vw, 1.05rem);
+  white-space: nowrap;
+}
+
+/* The page we are on gets bold text and an underline */
+.main-navbar .nav-link.active {
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 6px;
+}
+
+/* Hamburger button styling */
+.main-navbar .navbar-toggler {
+  border-color: #191919;
+}
+
+.main-navbar .navbar-toggler:focus {
+  box-shadow: 0 0 0 0.2rem rgba(54, 101, 243, 0.35);   /* blue glow when clicked */
+}
+
+/* Small laptops and tablets */
+@media (max-width: 65rem) {
+  .main-navbar {
+    padding-inline: 3%;
+  }
+}
+
+/* Phones */
+@media (max-width: 40rem) {
+  .main-navbar {
+    padding-inline: 4%;
+  }
+}
+
+/* When the hamburger menu is used (below the XL breakpoint) */
+@media (max-width: 1199.98px) {
+  .main-navbar .navbar-collapse {
+    margin-top: 0.5rem;
+    border-top: 1px solid #e5e5e5;
+  }
+
+  .main-navbar .nav-link {
+    padding: 0.7rem 0.25rem;
+    font-size: 1rem;
+    border-bottom: 1px solid #f0f0f0;
+  }
+}
+
+
+/* =========================================
+   5. IMAGE SLIDER (carousel)
+========================================= */
+
+/* Make the slider touch the edges of the screen */
+.hero-slider {
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+
+.hero-slider .carousel {
+  overflow: hidden;
+  border-radius: 0;
+}
+
+/* Slide images: fixed height, cropped to fill the space */
+.hero-slider .carousel-item img {
+  display: block;
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+}
+
+/* Left and right arrow areas */
+.hero-slider .carousel-control-prev,
+.hero-slider .carousel-control-next {
+  width: 8%;
+  opacity: 1;                               /* always visible */
+  z-index: 2;
+}
+
+/* The arrow icons: dark square boxes */
+.hero-slider .carousel-control-prev-icon,
+.hero-slider .carousel-control-next-icon {
+  width: 40px;
+  height: 40px;
+  background-color: rgba(0, 0, 0, 0.65);
+  background-size: 60%;
+  border-radius: 0;
+}
+
+/* Wrapper around one slide (lets text sit on top of the image) */
+.hero-slider .slide {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Dark fade on the left so the white text is readable */
+.hero-slider .overlay {
+  position: absolute;
+  inset: 0;                                 /* cover the whole slide */
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0) 65%);
+  z-index: 1;
+}
+
+/* Text block on top of the image */
+.slide-content {
+  position: absolute;
+  top: 50%;
+  left: 6%;
+  transform: translateY(-50%);              /* centers it vertically */
+  max-width: 45%;
+  z-index: 2;                               /* above the dark overlay */
+  text-align: left;
+}
+
+.slide-content h2 {
+  margin: 0 0 1rem;
+  font-size: clamp(1.6rem, 3.4vw, 3.4rem);
+  font-weight: 800;
+  line-height: 1.15;
+}
+
+.slide-content p {
+  margin: 0 0 1.5rem;
+  font-size: clamp(0.9rem, 1.2vw, 1.25rem);
+}
+
+/* White text (used on photo slides) */
+.light-text {
+  color: #fff;
+}
+
+/* Slide button */
+.slide-btn {
+  display: inline-block;
+  padding: 0.8rem 1.6rem;
+  border-radius: 100vw;
+  font-weight: 700;
+  font-size: clamp(0.9rem, 1.1vw, 1.1rem);
+}
+
+.slide-btn:hover {
+  text-decoration: none;
+  opacity: 0.9;
+}
+
+/* White pill-shaped button with dark text */
+.btn-white-pill {
+  background: #fff;
+  color: #191919;
+}
+
+/* Tablets */
+@media (max-width: 991px) {
+  .hero-slider .carousel-item img {
+    height: 320px;
+  }
+
+  .slide-content {
+    max-width: 55%;
+  }
+}
+
+/* Phones */
+@media (max-width: 576px) {
+  .hero-slider {
+    padding: 0 12px;
+    margin: 15px auto;
+  }
+
+  .hero-slider .carousel-item img {
+    height: 200px;
+  }
+
+  .slide-content {
+    max-width: 90%;
+    left: 5%;
+  }
+
+  .slide-content p {
+    display: none;                          /* hide the small text to save space */
+  }
+}
+
+
+/* =========================================
+   6. "THE FUTURE IN YOUR HANDS" SECTION
+========================================= */
+
+.future-section {
+  width: 100%;
+  padding: 72px 3.8% 0;
+  background: #fff;
+}
+
+.future-title {
+  margin: 0 0 28px;
+  color: #191919;
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.8px;
+}
+
+/* 7 equal columns on desktop */
+.future-categories {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  column-gap: 24px;
+  row-gap: 24px;
+  width: 100%;
+}
+
+.future-category {
+  display: block;
+  min-width: 0;
+  color: #191919;
+  text-decoration: none;
+}
+
+.future-category:hover,
+.future-category:focus {
+  color: #191919;
+  text-decoration: none;
+}
+
+/* Square grey box with rounded corners for each picture */
+.future-image {
+  width: 100%;
+  aspect-ratio: 1 / 1;                      /* always a perfect square */
+  overflow: hidden;
+  border-radius: 24px;
+  background: #ebebeb;
+}
+
+.future-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;                      /* show the whole image, no cropping */
+}
+
+/* Category name under the picture */
+.future-category h3 {
+  margin: 17px 0 0;
+  color: #191919;
+  font-size: 21px;
+  font-weight: 400;
+  line-height: 1.45;
+  letter-spacing: -0.3px;
+}
+
+/* Tablets: 4 columns */
+@media (max-width: 1100px) {
+  .future-section {
+    padding: 48px 3% 0;
+  }
+
+  .future-title {
+    font-size: 30px;
+  }
+
+  .future-categories {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 24px 18px;
+  }
+
+  .future-category h3 {
+    font-size: 18px;
+    margin-top: 12px;
+  }
+}
+
+/* Phones: one row that scrolls sideways, all 7 stay available */
+@media (max-width: 600px) {
+  .future-section {
+    padding: 32px 20px 0;
+  }
+
+  .future-title {
+    margin-bottom: 20px;
+    font-size: 27px;
+    letter-spacing: -0.5px;
+  }
+
+  .future-categories {
+    grid-template-columns: repeat(7, 180px);
+    gap: 16px;
+    overflow-x: auto;                       /* scroll left/right */
+    padding-bottom: 12px;
+    scrollbar-width: thin;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .future-image {
+    border-radius: 18px;
+  }
+
+  .future-category h3 {
+    margin-top: 12px;
+    font-size: 17px;
+    line-height: 1.4;
+  }
+}
+
+/* Extra small phones */
+@media (max-width: 360px) {
+  .future-categories {
+    grid-template-columns: repeat(7, 155px);
+  }
+}
+
+
+/* =========================================
+   7. "SHOPPING MADE EASY" BANNER
+========================================= */
+
+.shopping-section {
+  width: 100%;
+  padding: 0 3.8%;
+  margin: 86px 0 0;
+}
+
+/* Light grey rounded box: text on the left, button on the right */
+.shopping-banner {
+  width: 100%;
+  min-height: 196px;
+  padding: 40px 48px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+
+  background: #f7f7f7;
+  border-radius: 24px;
+}
+
+.shopping-text {
+  min-width: 0;
+}
+
+.shopping-text h2 {
+  margin: 0 0 12px;
+  color: #191919;
+  font-size: 44px;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -1px;
+}
+
+.shopping-text p {
+  margin: 0;
+  color: #191919;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+/* Black "Start now" button */
+.shopping-button {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 60px;
+  padding: 0 30px;
+  border-radius: 50px;
+  background: #191919;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.shopping-button:hover {
+  background: #333;
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Tablets */
+@media (max-width: 1100px) {
+  .shopping-section {
+    padding: 0 3%;
+    margin-top: 60px;
+  }
+
+  .shopping-banner {
+    min-height: 170px;
+    padding: 32px;
+  }
+
+  .shopping-text h2 {
+    font-size: 34px;
+  }
+
+  .shopping-text p {
+    font-size: 18px;
+  }
+}
+
+/* Phones: text and button stack vertically */
+@media (max-width: 600px) {
+  .shopping-section {
+    padding: 0 20px;
+    margin-top: 48px;
+    margin-bottom: 24px;
+  }
+
+  .shopping-banner {
+    min-height: auto;
+    padding: 26px 22px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 22px;
+    border-radius: 20px;
+  }
+
+  .shopping-text h2 {
+    font-size: 30px;
+    letter-spacing: -0.5px;
+  }
+
+  .shopping-text p {
+    font-size: 17px;
+    line-height: 1.5;
+  }
+
+  .shopping-button {
+    min-height: 52px;
+    padding: 0 25px;
+    font-size: 17px;
+  }
+}
+
+/* Extra small phones */
+@media (max-width: 360px) {
+  .shopping-text h2 {
+    font-size: 26px;
+  }
+}
+
+
+/* =========================================
+   8. "TRENDING ON EBAY" SECTION
+========================================= */
+
+.trending-section {
+  width: 100%;
+  padding: 26px 3.8% 82px;
+  background: #fff;
+}
+
+.trending-title {
+  margin: 0 0 26px;
+  color: #191919;
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.6px;
+}
+
+/* 7 equal columns on desktop */
+.trending-grid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  column-gap: 22px;
+  row-gap: 24px;
+  width: 100%;
+}
+
+.trending-card {
+  display: block;
+  min-width: 0;
+  color: #191919;
+  text-decoration: none;
+}
+
+.trending-card:hover {
+  color: #191919;
+  text-decoration: none;
+}
+
+.trending-image {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border-radius: 24px;
+  background: #ebebeb;
+}
+
+.trending-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.trending-card h3 {
+  margin: 16px 0 0;
+  font-size: 21px;
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: -0.25px;
+}
+
+/* Tablets: 4 columns */
+@media (max-width: 1100px) {
+  .trending-section {
+    padding: 28px 3% 55px;
+  }
+
+  .trending-title {
+    font-size: 32px;
+  }
+
+  .trending-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 24px 18px;
+  }
+
+  .trending-card h3 {
+    margin-top: 12px;
+    font-size: 18px;
+  }
+}
+
+/* Phones: scrollable row */
+@media (max-width: 600px) {
+  .trending-section {
+    padding: 25px 20px 40px;
+  }
+
+  .trending-title {
+    margin-bottom: 20px;
+    font-size: 28px;
+  }
+
+  .trending-grid {
+    grid-template-columns: repeat(7, 155px);
+    gap: 16px;
+    overflow-x: auto;
+    padding-bottom: 12px;
+    scrollbar-width: thin;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .trending-image {
+    border-radius: 18px;
+  }
+
+  .trending-card h3 {
+    margin-top: 12px;
+    font-size: 17px;
+  }
+}
+
+/* Extra small phones */
+@media (max-width: 360px) {
+  .trending-grid {
+    grid-template-columns: repeat(7, 140px);
+  }
+}
+
+
+/* =========================================
+   9. "GET HELP" BANNER
+========================================= */
+
+.help-banner {
+  position: relative;                       /* text and overlay sit on top of the photo */
+  width: 100%;
+  height: 540px;
+  overflow: hidden;
+}
+
+/* Background photo fills the whole banner */
+.help-banner-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Dark layer on the left so the white text is readable */
+.help-banner-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0) 65%);
+  z-index: 1;
+}
+
+/* Text block */
+.help-banner-content {
+  position: absolute;
+  top: 50%;
+  left: 6.3%;
+  transform: translateY(-50%);
+  max-width: 45%;
+  z-index: 2;
+  color: #fff;
+}
+
+.help-banner-content h2 {
+  margin: 0 0 18px;
+  font-size: clamp(2rem, 3.6vw, 3.6rem);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -1px;
+}
+
+.help-banner-content p {
+  margin: 0 0 28px;
+  font-size: clamp(1rem, 1.3vw, 1.3rem);
+}
+
+/* White pill button */
+.help-banner-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 56px;
+  padding: 0 26px;
+  border-radius: 50px;
+  background: #fff;
+  color: #191919;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.help-banner-button:hover {
+  background: #e8e8e8;
+  color: #191919;
+  text-decoration: none;
+}
+
+/* Tablets */
+@media (max-width: 1100px) {
+  .help-banner {
+    height: 420px;
+  }
+
+  .help-banner-content {
+    max-width: 60%;
+  }
+}
+
+/* Phones */
+@media (max-width: 600px) {
+  .help-banner {
+    height: 380px;
+    margin-top: 20px;
+  }
+
+  .help-banner-content {
+    left: 5%;
+    max-width: 90%;
+  }
+
+  .help-banner-content p {
+    font-size: 1rem;
+    margin-bottom: 20px;
+  }
+
+  .help-banner-button {
+    min-height: 48px;
+    font-size: 17px;
+  }
+}
+
+
+/* =========================================
+   10. TODAY'S DEALS
+   (the .deal-card styles are also used by
+   "More deals" on the product page)
+========================================= */
+
+.deals-section {
+  width: 100%;
+  padding: 56px 3.8% 70px;
+  background: #fff;
+}
+
+.deals-title {
+  margin: 0 0 6px;
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.6px;
+}
+
+.deals-subtitle {
+  margin: 0 0 28px;
+  color: #707070;
+  font-size: 22px;
+}
+
+/* One product card (image, name, price, button stacked vertically) */
+.deal-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* Square grey image box with rounded corners */
+.deal-image {
+  position: relative;                       /* needed to place the heart button */
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border-radius: 24px;
+  background: #f1f1f1;
+}
+
+.deal-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  mix-blend-mode: multiply;                 /* white photo backgrounds blend into the grey box */
+}
+
+/* Round heart button in the top-right corner of the image */
+.deal-heart {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+  border-radius: 50%;                       /* makes it a circle */
+  background: #fff;
+  color: #191919;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.deal-heart:hover {
+  background: #e8e8e8;
+}
+
+/* Product name, limited to 2 lines (extra text is cut off) */
+.deal-name {
+  margin: 14px 0 8px;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.4;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.deal-name a:hover {
+  text-decoration: underline;
+}
+
+/* Price row */
+.deal-price {
+  margin: 0 0 12px;
+}
+
+.deal-current {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+/* Old price: grey and crossed out */
+.deal-old {
+  margin-left: 8px;
+  color: #707070;
+  font-size: 15px;
+  text-decoration: line-through;
+}
+
+/* "Add to Cart" button sits at the bottom of the card */
+.deal-cart-btn {
+  margin-top: auto;
+  align-self: flex-start;
+  padding: 0.5rem 1.4rem;
+  font-weight: 700;
+}
+
+/* Tablets */
+@media (max-width: 1100px) {
+  .deals-section {
+    padding: 44px 3% 55px;
+  }
+
+  .deals-title {
+    font-size: 30px;
+  }
+
+  .deals-subtitle {
+    font-size: 18px;
+  }
+}
+
+/* Phones */
+@media (max-width: 600px) {
+  .deals-section {
+    padding: 32px 20px 40px;
+  }
+
+  .deals-title {
+    font-size: 27px;
+  }
+
+  .deals-subtitle {
+    margin-bottom: 20px;
+    font-size: 16px;
+  }
+
+  .deal-image {
+    border-radius: 16px;
+  }
+
+  .deal-name {
+    font-size: 15px;
+  }
+
+  .deal-current {
+    font-size: 18px;
+  }
+
+  .deal-old {
+    font-size: 13px;
+  }
+
+  .deal-cart-btn {
+    padding: 0.4rem 1rem;
+    font-size: 14px;
+  }
+}
+
+
+/* =========================================
+   11. CAR ACCESSORIES BANNER
+========================================= */
+
+.auto-banner {
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  width: 100%;
+  min-height: 388px;
+  overflow: hidden;
+
+  padding: 60px 6.3%;
+  background: #191919;                      /* dark background */
+  color: #fff;
+}
+
+/* Text on the left */
+.auto-banner-content {
+  position: relative;
+  z-index: 5;                               /* stays above the product cards */
+  flex: 0 0 43%;
+  max-width: 680px;
+}
+
+.auto-banner-content h2 {
+  margin: 0 0 22px;
+  color: #fff;
+  font-size: clamp(34px, 3vw, 52px);
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -1px;
+}
+
+.auto-banner-content p {
+  margin: 0 0 24px;
+  color: #fff;
+  font-size: 23px;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+/* White "Shop now" button */
+.auto-shop-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 56px;
+  padding: 0 24px;
+  border-radius: 50px;
+  background: #fff;
+  color: #191919;
+  font-size: 22px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.auto-shop-button:hover {
+  background: #e8e8e8;
+  color: #191919;
+  text-decoration: none;
+}
+
+/* Right side: area that holds the 3 overlapping cards */
+.auto-products {
+  position: absolute;
+  top: 42px;
+  right: 4.5%;
+  bottom: -30px;
+
+  width: 49%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+/* One white product card */
+.auto-product {
+  position: absolute;
+  top: 25px;
+  width: 35%;
+  height: 360px;
+
+  overflow: hidden;
+  border-radius: 20px;
+  background: #fff;
+}
+
+.auto-product img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Each card has its own position and tilt (rotate) */
+.auto-product-one {
+  left: 0;
+  z-index: 1;
+  transform: rotate(10deg);
+}
+
+.auto-product-two {
+  left: 30%;
+  top: 12px;
+  z-index: 2;
+  transform: rotate(-6deg);
+}
+
+.auto-product-three {
+  left: 60%;
+  top: 0;
+  z-index: 3;
+  transform: rotate(4deg);
+}
+
+/* Tablets */
+@media (max-width: 1100px) {
+  .auto-banner {
+    min-height: 360px;
+    padding: 45px 4%;
+  }
+
+  .auto-banner-content {
+    flex-basis: 46%;
+  }
+
+  .auto-banner-content h2 {
+    font-size: 36px;
+  }
+
+  .auto-banner-content p {
+    font-size: 19px;
+  }
+
+  .auto-products {
+    right: 2%;
+    width: 48%;
+  }
+
+  .auto-product {
+    height: 300px;
+  }
+}
+
+/* Phones: text on top, product cards below it */
+@media (max-width: 600px) {
+  .auto-banner {
+    flex-direction: column;
+    align-items: stretch;
+    min-height: 620px;
+    padding: 38px 22px 0;
+  }
+
+  .auto-banner-content {
+    flex: none;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .auto-banner-content h2 {
+    margin-bottom: 16px;
+    font-size: 34px;
+    letter-spacing: -0.6px;
+  }
+
+  .auto-banner-content p {
+    margin-bottom: 20px;
+    font-size: 17px;
+  }
+
+  .auto-shop-button {
+    min-height: 50px;
+    padding-inline: 22px;
+    font-size: 18px;
+  }
+
+  /* Cards now flow below the text instead of floating on the right */
+  .auto-products {
+    position: relative;
+    top: auto;
+    right: auto;
+    bottom: auto;
+
+    flex: 1;
+    width: 100%;
+    min-height: 260px;
+    margin-top: 25px;
+  }
+
+  .auto-product {
+    top: 20px;
+    width: 39%;
+    height: 245px;
+    border-radius: 14px;
+  }
+
+  .auto-product-one   { left: 0; }
+  .auto-product-two   { left: 29%; top: 8px; }
+  .auto-product-three { left: 57%; top: 0; }
+}
+
+/* Extra small phones */
+@media (max-width: 360px) {
+  .auto-banner {
+    min-height: 570px;
+    padding-inline: 16px;
+  }
+
+  .auto-banner-content h2 {
+    font-size: 29px;
+  }
+
+  .auto-product {
+    height: 210px;
+  }
+}
+
+
+/* =========================================
+   12. FOOTER
+========================================= */
+
+.site-footer {
+  width: 100%;
+  padding: 60px 3.8% 40px;
+  background: #f7f7f7;
+  border-top: 1px solid #e5e5e5;
+}
+
+/* Column headings (Buy, Sell, ...) */
+.footer-heading {
+  margin: 0 0 18px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #191919;
+}
+
+/* Extra space above a second heading in the same column */
+.footer-heading-spaced {
+  margin-top: 32px;
+}
+
+/* Link lists (no bullet points) */
+.footer-links {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.footer-links li {
+  margin-bottom: 10px;
+}
+
+.footer-links a {
+  color: #555;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.footer-links a:hover {
+  color: #191919;
+  text-decoration: underline;
+}
+
+/* Facebook and X icons */
+.footer-social-icon {
+  margin-right: 6px;
+  font-size: 1.2rem;
+  vertical-align: middle;
+}
+
+/* Country dropdown */
+.footer-country {
+  max-width: 260px;
+  padding: 0.7rem 1rem;
+  border: 1px solid #707070;
+  border-radius: 8px;
+  color: #555;
+}
+
+/* Copyright line at the very bottom */
+.footer-copyright {
+  margin: 48px 0 0;
+  color: #555;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.footer-copyright a {
+  color: #0654ba;
+  text-decoration: underline;
+}
+
+/* Tablets */
+@media (max-width: 1100px) {
+  .site-footer {
+    padding: 45px 3% 30px;
+  }
+}
+
+/* Phones */
+@media (max-width: 600px) {
+  .site-footer {
+    padding: 35px 20px 25px;
+  }
+
+  .footer-copyright {
+    margin-top: 32px;
+  }
+}
+
+
+/* =========================================
+   13. PRODUCT PAGE (product.html only)
+========================================= */
+
+.product-page {
+  width: 100%;
+  padding: 24px 3.8% 70px;
+  background: #fff;
+}
+
+/* ----- Breadcrumb and back link ----- */
+.product-page .breadcrumb {
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.product-page .breadcrumb a {
+  color: #555;
+}
+
+.product-page .breadcrumb a:hover {
+  color: #191919;
+  text-decoration: underline;
+}
+
+.product-back-link {
+  display: inline-block;
+  margin-bottom: 24px;
+  color: #0654ba;
+  font-size: 16px;
+}
+
+/* ----- Large product image ----- */
+.product-image-box {
+  display: flex;
+  align-items: center;                      /* center the image up/down */
+  justify-content: center;                  /* center the image left/right */
+
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  aspect-ratio: 1 / 1;
+
+  overflow: hidden;
+  border-radius: 24px;
+  background: #f1f1f1;
+}
+
+.product-image-box img {
+  display: block;
+  width: 85%;
+  height: 85%;
+  object-fit: contain;
+  mix-blend-mode: multiply;                 /* white photo background blends into grey */
+}
+
+/* ----- Title, condition and price ----- */
+.product-title {
+  margin: 0 0 12px;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.5px;
+}
+
+.product-condition {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0 0 20px;
+}
+
+.product-stock {
+  color: #707070;
+  font-size: 15px;
+}
+
+.product-price {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 6px 14px;
+  margin: 0 0 24px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.product-price-current {
+  font-size: 38px;
+  font-weight: 700;
+}
+
+.product-price-old {
+  color: #707070;
+  font-size: 18px;
+  text-decoration: line-through;
+}
+
+.product-price-save {
+  color: #c71f16;                           /* red savings text */
+  font-size: 16px;
+  font-weight: 700;
+}
+
+/* ----- Quantity selector ----- */
+.product-quantity {
+  margin-bottom: 20px;
+}
+
+.product-quantity-input {
+  width: 120px;
+  padding: 0.6rem 0.9rem;
+  border: 1px solid #707070;
+  border-radius: 8px;
+  font-size: 18px;
+}
+
+/* ----- Buttons ----- */
+.product-buttons {
+  max-width: 460px;
+  margin-bottom: 28px;
+}
+
+/* "Add to Cart": solid blue */
+.product-cart-btn {
+  background: #3665f3;
+  border: 2px solid #3665f3;
+  color: #fff;
+  font-weight: 700;
+}
+
+.product-cart-btn:hover {
+  background: #2454d8;
+  border-color: #2454d8;
+  color: #fff;
+}
+
+/* "Add to Watchlist": white with blue outline */
+.product-watch-btn {
+  background: #fff;
+  border: 2px solid #3665f3;
+  color: #3665f3;
+  font-weight: 700;
+}
+
+.product-watch-btn:hover {
+  background: #eef2fe;
+  border-color: #3665f3;
+  color: #3665f3;
+}
+
+/* ----- Shipping / returns box ----- */
+.product-info-list {
+  margin: 0;
+  padding: 20px;
+  border-radius: 16px;
+  background: #f7f7f7;
+}
+
+.product-info-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  margin-bottom: 14px;
+  color: #333;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.product-info-list li:last-child {
+  margin-bottom: 0;
+}
+
+.product-info-list i {
+  flex-shrink: 0;
+  font-size: 1.4rem;
+  line-height: 1.2;
+}
+
+/* ----- Description, specs and "More deals" sections ----- */
+.product-details,
+.product-related {
+  margin-top: 56px;
+  padding-top: 40px;
+  border-top: 1px solid #e5e5e5;
+}
+
+.product-section-title {
+  margin: 0 0 18px;
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: -0.4px;
+}
+
+.product-description {
+  color: #333;
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.product-features {
+  padding-left: 1.2rem;
+  color: #333;
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+/* Item specifics list: each row has a thin line under it */
+.product-specs {
+  margin: 0;
+  font-size: 16px;
+}
+
+.product-specs dt,
+.product-specs dd {
+  margin: 0;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.product-specs dt {
+  color: #707070;                           /* grey labels */
+  font-weight: 400;
+}
+
+/* Tablets */
+@media (max-width: 1100px) {
+  .product-page {
+    padding: 20px 3% 55px;
+  }
+
+  .product-title {
+    font-size: 26px;
+  }
+
+  .product-price-current {
+    font-size: 32px;
+  }
+
+  .product-buttons {
+    max-width: 100%;
+  }
+}
+
+/* Phones */
+@media (max-width: 600px) {
+  .product-page {
+    padding: 16px 20px 40px;
+  }
+
+  .product-image-box {
+    border-radius: 16px;
+  }
+
+  .product-title {
+    font-size: 22px;
+  }
+
+  .product-price-current {
+    font-size: 28px;
+  }
+
+  .product-price-old {
+    font-size: 16px;
+  }
+
+  .product-details,
+  .product-related {
+    margin-top: 36px;
+    padding-top: 28px;
+  }
+
+  .product-section-title {
+    font-size: 22px;
+  }
+
+  .product-description {
+    font-size: 16px;
+  }
+}

@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+
+  <!-- Makes the page fit phone screens properly -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Text shown on the browser tab -->
+  <title>eBay Product - Premium Car Floor Mats</title>
+
+  <!-- Bootstrap: ready-made styles for the grid, navbar, carousel and buttons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Bootstrap Icons: the small icons (cart, bell, heart, etc.) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+
+  <!-- Our own styles (all the custom design lives in this file) -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- ===============================
+       1. TOP BAR (sign in, deals, cart)
+  ================================ -->
+  <div class="top-bar">
+
+    <!-- Left side links -->
+    <div class="top-left">
+      <span>Hi! <a href="#">Sign in</a> or <a href="#">register</a></span>
+      <a href="index.html#deals">Deals</a>
+      <a href="#">Brand Outlet</a>
+      <a href="#">Help &amp; Contact</a>
+    </div>
+
+    <!-- Right side links and icons -->
+    <div class="top-right">
+      <span><i class="bi bi-truck"></i> 54000</span>
+      <a href="#">Sell <i class="bi bi-chevron-down"></i></a>
+      <a href="#">Watchlist <i class="bi bi-chevron-down"></i></a>
+      <a href="#">My eBay <i class="bi bi-chevron-down"></i></a>
+      <a href="#" aria-label="Notifications"><i class="bi bi-bell"></i></a>
+      <a href="#" aria-label="Shopping cart"><i class="bi bi-cart3"></i></a>
+    </div>
+  </div>
+
+
+  <!-- ===============================
+       2. MAIN HEADER (logo + search)
+  ================================ -->
+  <div class="main-header">
+
+    <!-- Logo: each letter has its own colour class -->
+    <a href="index.html" class="ebay-logo" aria-label="eBay home">
+      <span class="red">e</span><span class="blue">b</span><span class="yellow">a</span><span class="green">y</span>
+    </a>
+
+    <!-- "Shop by category" button -->
+    <button class="category-button">
+      <span>Shop by<br />category</span>
+      <i class="bi bi-chevron-down"></i>
+    </button>
+
+    <!-- Search form -->
+    <form class="search-area" action="#">
+
+      <!-- The rounded search box (icon, text field, camera, dropdown) -->
+      <div class="search-box">
+        <i class="bi bi-search search-icon"></i>
+
+        <input type="search" placeholder="Search for anything" aria-label="Search for anything" />
+
+        <button type="button" class="camera-button" aria-label="Search by image">
+          <i class="bi bi-camera"></i>
+        </button>
+
+        <select aria-label="Select category">
+          <option>All Categories</option>
+          <option>Electronics</option>
+          <option>Fashion</option>
+          <option>Home and Garden</option>
+          <option>Sports</option>
+        </select>
+
+        <i class="bi bi-chevron-down select-arrow"></i>
+      </div>
+
+      <!-- Blue search button and the "Advanced" link -->
+      <button type="submit" class="search-button">Search</button>
+      <a href="#" class="advanced-link">Advanced</a>
+    </form>
+  </div>
+
+
+  <!-- ===============================
+       3. NAVIGATION BAR
+       Full row on big screens, hamburger menu on tablets and phones
+  ================================ -->
+  <nav class="navbar navbar-expand-xl main-navbar" aria-label="Main navigation">
+    <div class="container-fluid">
+
+      <!-- The word "Menu" (only shown on small screens) -->
+      <span class="navbar-text d-xl-none fw-bold">Menu</span>
+
+      <!-- Hamburger button (only shown on small screens) -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+        data-bs-target="#mainNavMenu" aria-controls="mainNavMenu"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- The links. They hide inside the hamburger on small screens -->
+      <div class="collapse navbar-collapse" id="mainNavMenu">
+        <ul class="navbar-nav w-100 justify-content-xl-between">
+          <!-- "active" underlines the page we are currently on -->
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Saved</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Electronics</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Motors</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Fashion</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Collectibles and art</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Sports</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Health and beauty</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Industrial equipment</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Home and garden</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#deals">Deals</a></li>
+          <li class="nav-item"><a class="nav-link active" aria-current="page" href="product.html">Featured Product</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Sell</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+
+  <!-- ===============================
+       PRODUCT DETAIL PAGE
+  ================================ -->
+  <main class="product-page">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+        <li class="breadcrumb-item"><a href="index.html#deals">Deals</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Car Accessories</li>
+      </ol>
+    </nav>
+    <a class="product-back-link" href="index.html#deals"><i class="bi bi-arrow-left"></i> Back to deals</a>
+
+    <section class="row g-4 g-lg-5 align-items-start" aria-labelledby="product-heading">
+      <div class="col-12 col-lg-6">
+        <div class="product-image-box">
+          <img src="assets/floor_mat.png" alt="Set of premium black car floor mats" />
+        </div>
+      </div>
+      <div class="col-12 col-lg-6">
+        <p class="text-secondary mb-2">Featured product · Car accessories</p>
+        <h1 class="product-title" id="product-heading">Premium All-Weather Car Floor Mats – Universal Fit</h1>
+        <div class="product-condition">
+          <span><i class="bi bi-star-fill text-warning"></i> <strong>4.8</strong> (128 reviews)</span>
+          <span class="product-stock"><i class="bi bi-check-circle-fill text-success"></i> In stock</span>
+        </div>
+        <p class="product-price">
+          <span class="product-price-current">$39.99</span>
+          <span class="product-price-old">$59.99</span>
+          <span class="product-price-save">You save $20.00 (33%)</span>
+        </p>
+        <div class="product-quantity">
+          <label for="quantity" class="form-label fw-semibold">Quantity</label><br />
+          <input class="product-quantity-input" id="quantity" name="quantity" type="number" min="1" max="10" value="1" />
+        </div>
+        <div class="product-buttons d-grid gap-3">
+          <button class="btn btn-lg product-cart-btn" type="button"><i class="bi bi-cart3 me-2"></i>Add to Cart</button>
+          <button class="btn btn-lg product-watch-btn" type="button"><i class="bi bi-heart me-2"></i>Add to Watchlist</button>
+        </div>
+        <ul class="product-info-list list-unstyled">
+          <li><i class="bi bi-truck"></i><span><strong>Free shipping</strong><br />Estimated delivery in 3–5 business days.</span></li>
+          <li><i class="bi bi-arrow-repeat"></i><span><strong>30-day returns</strong><br />Return the item within 30 days of delivery.</span></li>
+          <li><i class="bi bi-shield-check"></i><span><strong>Secure purchase</strong><br />Shop with confidence and buyer protection.</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="product-details" aria-labelledby="description-heading">
+      <h2 class="product-section-title" id="description-heading">Product description</h2>
+      <p class="product-description">Protect your vehicle's interior with these durable all-weather car floor mats. The textured surface helps trap dirt, mud and moisture, while the flexible material is easy to clean and designed for everyday use.</p>
+      <h3 class="h5 fw-bold mt-4 mb-3">Key features</h3>
+      <ul class="product-features">
+        <li>Universal design that can be trimmed for a better fit.</li>
+        <li>Water-resistant, durable material for everyday protection.</li>
+        <li>Textured surface helps keep shoes from slipping.</li>
+        <li>Easy to remove, wash and reinstall.</li>
+      </ul>
+      <h3 class="h5 fw-bold mt-4 mb-3">Item specifics</h3>
+      <dl class="product-specs row">
+        <dt class="col-5 col-md-3">Brand</dt><dd class="col-7 col-md-9">Generic</dd>
+        <dt class="col-5 col-md-3">Type</dt><dd class="col-7 col-md-9">All-weather floor mat set</dd>
+        <dt class="col-5 col-md-3">Material</dt><dd class="col-7 col-md-9">Flexible rubber-like polymer</dd>
+        <dt class="col-5 col-md-3">Colour</dt><dd class="col-7 col-md-9">Black</dd>
+        <dt class="col-5 col-md-3">Fitment</dt><dd class="col-7 col-md-9">Universal / trimmable</dd>
+        <dt class="col-5 col-md-3">Condition</dt><dd class="col-7 col-md-9">New</dd>
+      </dl>
+    </section>
+
+    <section class="product-related" aria-labelledby="related-heading">
+      <h2 class="product-section-title" id="related-heading">More deals</h2>
+      <p class="text-secondary mb-4">Explore more picks you may like.</p>
+      <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-3 g-md-4">
+        <div class="col"><div class="deal-card">
+          <div class="deal-image"><a href="product.html"><img src="assets/a/p1.webp" alt="Wireless soundbar" /></a><button class="deal-heart" type="button" aria-label="Add soundbar to watchlist"><i class="bi bi-heart"></i></button></div>
+          <h3 class="deal-name"><a href="product.html">Bose Solo Soundbar 2 Home Theater</a></h3><p class="deal-price"><span class="deal-current">$94.00</span><span class="deal-old">$199.00</span></p><a class="btn btn-dark rounded-pill deal-cart-btn" href="product.html">View deal</a>
+        </div></div>
+        <div class="col"><div class="deal-card">
+          <div class="deal-image"><a href="product.html"><img src="assets/a/p2.webp" alt="Featured electronics deal" /></a><button class="deal-heart" type="button" aria-label="Add item to watchlist"><i class="bi bi-heart"></i></button></div>
+          <h3 class="deal-name"><a href="product.html">Everyday tech accessory</a></h3><p class="deal-price"><span class="deal-current">$24.99</span></p><a class="btn btn-dark rounded-pill deal-cart-btn" href="product.html">View deal</a>
+        </div></div>
+        <div class="col"><div class="deal-card">
+          <div class="deal-image"><a href="product.html"><img src="assets/a/p3.webp" alt="Home and lifestyle deal" /></a><button class="deal-heart" type="button" aria-label="Add item to watchlist"><i class="bi bi-heart"></i></button></div>
+          <h3 class="deal-name"><a href="product.html">Home and lifestyle pick</a></h3><p class="deal-price"><span class="deal-current">$18.50</span><span class="deal-old">$29.99</span></p><a class="btn btn-dark rounded-pill deal-cart-btn" href="product.html">View deal</a>
+        </div></div>
+        <div class="col"><div class="deal-card">
+          <div class="deal-image"><a href="product.html"><img src="assets/a/p4.webp" alt="Popular shopping deal" /></a><button class="deal-heart" type="button" aria-label="Add item to watchlist"><i class="bi bi-heart"></i></button></div>
+          <h3 class="deal-name"><a href="product.html">Popular pick at a great price</a></h3><p class="deal-price"><span class="deal-current">$32.00</span></p><a class="btn btn-dark rounded-pill deal-cart-btn" href="product.html">View deal</a>
+        </div></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===============================
+       11. FOOTER
+       Bootstrap grid: 1 column on phones, 2 on tablets, 5 on desktop
+  ================================ -->
+  <footer class="site-footer">
+
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-5 g-4">
+
+      <!-- Column 1: Buy -->
+      <div class="col">
+        <h3 class="footer-heading">Buy</h3>
+        <ul class="footer-links">
+          <li><a href="#">Registration</a></li>
+          <li><a href="#">Bidding &amp; buying help</a></li>
+          <li><a href="#">Stores</a></li>
+          <li><a href="#">Creator Collections</a></li>
+          <li><a href="#">eBay for Charity</a></li>
+          <li><a href="#">Charity Shop</a></li>
+          <li><a href="#">Seasonal Sales and events</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 2: Sell + Tools & apps -->
+      <div class="col">
+        <h3 class="footer-heading">Sell</h3>
+        <ul class="footer-links">
+          <li><a href="#">Start selling</a></li>
+          <li><a href="#">How to sell</a></li>
+          <li><a href="#">Business sellers</a></li>
+          <li><a href="#">Affiliates</a></li>
+        </ul>
+
+        <h3 class="footer-heading footer-heading-spaced">Tools &amp; apps</h3>
+        <ul class="footer-links">
+          <li><a href="#">Developers</a></li>
+          <li><a href="#">Security center</a></li>
+          <li><a href="#">Site map</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 3: eBay companies + Stay connected -->
+      <div class="col">
+        <h3 class="footer-heading">eBay companies</h3>
+        <ul class="footer-links">
+          <li><a href="#">TCGplayer</a></li>
+        </ul>
+
+        <h3 class="footer-heading footer-heading-spaced">Stay connected</h3>
+        <ul class="footer-links">
+          <li><a href="#"><i class="bi bi-facebook footer-social-icon"></i> Facebook</a></li>
+          <li><a href="#"><i class="bi bi-twitter-x footer-social-icon"></i> X (Twitter)</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 4: About eBay -->
+      <div class="col">
+        <h3 class="footer-heading">About eBay</h3>
+        <ul class="footer-links">
+          <li><a href="#">Company info</a></li>
+          <li><a href="#">News</a></li>
+          <li><a href="#">Deferred Prosecution Agreement with District of Massachusetts</a></li>
+          <li><a href="#">Investors</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Diversity &amp; Inclusion</a></li>
+          <li><a href="#">Global Impact</a></li>
+          <li><a href="#">Government relations</a></li>
+          <li><a href="#">Advertise with us</a></li>
+          <li><a href="#">Policies</a></li>
+          <li><a href="#">Verified Rights Owner (VeRO) Program</a></li>
+          <li><a href="#">eCI Licenses</a></li>
+          <li><a href="#">Product Safety Tips</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 5: Help & Contact + Community + eBay Sites -->
+      <div class="col">
+        <h3 class="footer-heading">Help &amp; Contact</h3>
+        <ul class="footer-links">
+          <li><a href="#">Seller Center</a></li>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">eBay Returns</a></li>
+          <li><a href="#">eBay Money Back Guarantee</a></li>
+        </ul>
+
+        <h3 class="footer-heading footer-heading-spaced">Community</h3>
+        <ul class="footer-links">
+          <li><a href="#">Announcements</a></li>
+          <li><a href="#">eBay Community</a></li>
+          <li><a href="#">eBay for Business Podcast</a></li>
+        </ul>
+
+        <h3 class="footer-heading footer-heading-spaced">eBay Sites</h3>
+        <select class="form-select footer-country" aria-label="Choose your country">
+          <option>United States</option>
+          <option>United Kingdom</option>
+          <option>Canada</option>
+          <option>Australia</option>
+          <option>Germany</option>
+        </select>
+      </div>
+
+    </div>
+
+    <!-- Copyright line at the very bottom -->
+    <p class="footer-copyright">
+      Copyright &copy; 1995-2026 eBay Inc. All Rights Reserved.
+      <a href="#">Accessibility</a>,
+      <a href="#">User Agreement</a>,
+      <a href="#">Privacy</a>,
+      <a href="#">Consumer Health Data</a>,
+      <a href="#">Payments Terms of Use</a>,
+      <a href="#">Cookies</a>,
+      <a href="#">CA Privacy Notice</a>,
+      <a href="#">Your Privacy Choices</a>
+      and <a href="#">AdChoice</a>
+    </p>
+  </footer>
+
+  <!-- Bootstrap JavaScript: makes the hamburger menu and carousel work -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
