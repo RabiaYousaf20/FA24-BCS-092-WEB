@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+
+  <!-- Makes the page fit phone screens properly -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Text shown on the browser tab -->
+  <title>eBay - Shopping Cart</title>
+
+  <!-- Bootstrap: ready-made styles for the grid, navbar, carousel and buttons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Bootstrap Icons: the small icons (cart, bell, heart, etc.) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+
+  <!-- Our own styles (all the custom design lives in this file) -->
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="data:," />
+</head>
+
+<body>
+
+  <!-- ===============================
+       1. TOP BAR (sign in, deals, cart)
+  ================================ -->
+  <div class="top-bar">
+
+    <!-- Left side links -->
+    <div class="top-left">
+      <span>Hi! <a href="#">Sign in</a> or <a href="#">register</a></span>
+      <a href="index.html#deals">Deals</a>
+      <a href="#">Brand Outlet</a>
+      <a href="#">Help &amp; Contact</a>
+    </div>
+
+    <!-- Right side links and icons -->
+    <div class="top-right">
+      <span><i class="bi bi-truck"></i> 54000</span>
+      <a href="#">Sell <i class="bi bi-chevron-down"></i></a>
+      <a href="#">Watchlist <i class="bi bi-chevron-down"></i></a>
+      <a href="#">My eBay <i class="bi bi-chevron-down"></i></a>
+      <a href="#" aria-label="Notifications"><i class="bi bi-bell"></i></a>
+      <a href="cart.html" class="cart-link" aria-label="Shopping cart"><i class="bi bi-cart3"></i><span id="cart-count" class="cart-badge">0</span></a>
+    </div>
+  </div>
+
+
+  <!-- ===============================
+       2. MAIN HEADER (logo + search)
+  ================================ -->
+  <div class="main-header">
+
+    <!-- Logo: each letter has its own colour class -->
+    <a href="index.html" class="ebay-logo" aria-label="eBay home">
+      <span class="red">e</span><span class="blue">b</span><span class="yellow">a</span><span class="green">y</span>
+    </a>
+
+    <!-- "Shop by category" button -->
+    <button class="category-button">
+      <span>Shop by<br />category</span>
+      <i class="bi bi-chevron-down"></i>
+    </button>
+
+    <!-- Search form -->
+    <form class="search-area" action="#">
+
+      <!-- The rounded search box (icon, text field, camera, dropdown) -->
+      <div class="search-box">
+        <i class="bi bi-search search-icon"></i>
+
+        <input type="search" placeholder="Search for anything" aria-label="Search for anything" />
+
+        <button type="button" class="camera-button" aria-label="Search by image">
+          <i class="bi bi-camera"></i>
+        </button>
+
+        <select aria-label="Select category">
+          <option>All Categories</option>
+          <option>Electronics</option>
+          <option>Fashion</option>
+          <option>Home and Garden</option>
+          <option>Sports</option>
+        </select>
+
+        <i class="bi bi-chevron-down select-arrow"></i>
+      </div>
+
+      <!-- Blue search button and the "Advanced" link -->
+      <button type="submit" class="search-button">Search</button>
+      <a href="#" class="advanced-link">Advanced</a>
+    </form>
+  </div>
+
+
+  <!-- ===============================
+       3. NAVIGATION BAR
+       Full row on big screens, hamburger menu on tablets and phones
+  ================================ -->
+  <nav class="navbar navbar-expand-xl main-navbar" aria-label="Main navigation">
+    <div class="container-fluid">
+
+      <!-- The word "Menu" (only shown on small screens) -->
+      <span class="navbar-text d-xl-none fw-bold">Menu</span>
+
+      <!-- Hamburger button (only shown on small screens) -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+        data-bs-target="#mainNavMenu" aria-controls="mainNavMenu"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- The links. They hide inside the hamburger on small screens -->
+      <div class="collapse navbar-collapse" id="mainNavMenu">
+        <ul class="navbar-nav w-100 justify-content-xl-between">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Saved</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Electronics</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Motors</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Fashion</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Collectibles and art</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Sports</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Health and beauty</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Industrial equipment</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Home and garden</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#deals">Deals</a></li>
+          <li class="nav-item"><a class="nav-link" href="product.html">Featured Product</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Sell</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- ===============================
+       CART + CHECKOUT PAGE
+  ================================ -->
+  <main class="product-page">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Shopping cart</li>
+      </ol>
+    </nav>
+
+    <h1 class="product-title">Shopping cart</h1>
+
+    <!-- cart-page.js fills this with the cart items -->
+    <div id="cart-items"></div>
+
+    <p class="fs-4 fw-bold mt-4">Total: <span id="cart-total">$0.00</span></p>
+
+    <!-- Checkout form: novalidate so OUR regex checks run, not the browser's -->
+    <form id="checkout-form" novalidate class="mt-5" style="max-width:520px">
+      <h2 class="product-section-title">Checkout</h2>
+
+      <div class="mb-3">
+        <label class="form-label" for="name">Full name</label>
+        <input class="form-control" id="name" name="name" autocomplete="name">
+        <div class="invalid-feedback"></div>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label" for="email">Email</label>
+        <input class="form-control" id="email" name="email" autocomplete="email">
+        <div class="invalid-feedback"></div>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label" for="phone">Phone</label>
+        <input class="form-control" id="phone" name="phone" autocomplete="tel">
+        <div class="invalid-feedback"></div>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label" for="address">Address</label>
+        <textarea class="form-control" id="address" name="address" rows="2" autocomplete="street-address"></textarea>
+        <div class="invalid-feedback"></div>
+      </div>
+
+      <button class="btn btn-lg product-cart-btn w-100" type="submit">Place order</button>
+      <p id="form-success" class="text-success fw-bold mt-3"></p>
+    </form>
+  </main>
+
+
+  <!-- ===============================
+       FOOTER
+  ================================ -->
+  <footer class="site-footer">
+
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-5 g-4">
+
+      <div class="col">
+        <h3 class="footer-heading">Buy</h3>
+        <ul class="footer-links">
+          <li><a href="#">Registration</a></li>
+          <li><a href="#">Bidding &amp; buying help</a></li>
+          <li><a href="#">Stores</a></li>
+          <li><a href="#">Creator Collections</a></li>
+          <li><a href="#">eBay for Charity</a></li>
+          <li><a href="#">Charity Shop</a></li>
+          <li><a href="#">Seasonal Sales and events</a></li>
+        </ul>
+      </div>
+
+      <div class="col">
+        <h3 class="footer-heading">Sell</h3>
+        <ul class="footer-links">
+          <li><a href="#">Start selling</a></li>
+          <li><a href="#">How to sell</a></li>
+          <li><a href="#">Business sellers</a></li>
+          <li><a href="#">Affiliates</a></li>
+        </ul>
+
+        <h3 class="footer-heading footer-heading-spaced">Tools &amp; apps</h3>
+        <ul class="footer-links">
+          <li><a href="#">Developers</a></li>
+          <li><a href="#">Security center</a></li>
+          <li><a href="#">Site map</a></li>
+        </ul>
+      </div>
+
+      <div class="col">
+        <h3 class="footer-heading">eBay companies</h3>
+        <ul class="footer-links">
+          <li><a href="#">TCGplayer</a></li>
+        </ul>
+
+        <h3 class="footer-heading footer-heading-spaced">Stay connected</h3>
+        <ul class="footer-links">
+          <li><a href="#"><i class="bi bi-facebook footer-social-icon"></i> Facebook</a></li>
+          <li><a href="#"><i class="bi bi-twitter-x footer-social-icon"></i> X (Twitter)</a></li>
+        </ul>
+      </div>
+
+      <div class="col">
+        <h3 class="footer-heading">About eBay</h3>
+        <ul class="footer-links">
+          <li><a href="#">Company info</a></li>
+          <li><a href="#">News</a></li>
+          <li><a href="#">Deferred Prosecution Agreement with District of Massachusetts</a></li>
+          <li><a href="#">Investors</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Diversity &amp; Inclusion</a></li>
+          <li><a href="#">Global Impact</a></li>
+          <li><a href="#">Government relations</a></li>
+          <li><a href="#">Advertise with us</a></li>
+          <li><a href="#">Policies</a></li>
+          <li><a href="#">Verified Rights Owner (VeRO) Program</a></li>
+          <li><a href="#">eCI Licenses</a></li>
+          <li><a href="#">Product Safety Tips</a></li>
+        </ul>
+      </div>
+
+      <div class="col">
+        <h3 class="footer-heading">Help &amp; Contact</h3>
+        <ul class="footer-links">
+          <li><a href="#">Seller Center</a></li>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">eBay Returns</a></li>
+          <li><a href="#">eBay Money Back Guarantee</a></li>
+        </ul>
+
+        <h3 class="footer-heading footer-heading-spaced">Community</h3>
+        <ul class="footer-links">
+          <li><a href="#">Announcements</a></li>
+          <li><a href="#">eBay Community</a></li>
+          <li><a href="#">eBay for Business Podcast</a></li>
+        </ul>
+
+        <h3 class="footer-heading footer-heading-spaced">eBay Sites</h3>
+        <select class="form-select footer-country" aria-label="Choose your country">
+          <option>United States</option>
+          <option>United Kingdom</option>
+          <option>Canada</option>
+          <option>Australia</option>
+          <option>Germany</option>
+        </select>
+      </div>
+
+    </div>
+
+    <!-- Copyright line at the very bottom -->
+    <p class="footer-copyright">
+      Copyright &copy; 1995-2026 eBay Inc. All Rights Reserved.
+      <a href="#">Accessibility</a>,
+      <a href="#">User Agreement</a>,
+      <a href="#">Privacy</a>,
+      <a href="#">Consumer Health Data</a>,
+      <a href="#">Payments Terms of Use</a>,
+      <a href="#">Cookies</a>,
+      <a href="#">CA Privacy Notice</a>,
+      <a href="#">Your Privacy Choices</a>
+      and <a href="#">AdChoice</a>
+    </p>
+  </footer>
+
+  <!-- Bootstrap JavaScript: makes the hamburger menu work -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Our JavaScript: cart.js FIRST (shared cart code), then this page's script -->
+  <script src="cart.js"></script>
+  <script src="cart-page.js"></script>
+</body>
+
+</html>

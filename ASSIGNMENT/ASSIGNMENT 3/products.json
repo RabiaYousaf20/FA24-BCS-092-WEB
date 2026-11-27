@@ -1,0 +1,83 @@
+[
+  {
+    "id": 1,
+    "name": "Bose Solo Soundbar 2 Home Theater, Certified Refurbished",
+    "price": 94.00,
+    "oldPrice": 199.00,
+    "image": "assets/a/p1.webp",
+    "category": "Electronics",
+    "description": "Compact soundbar that makes TV dialogue clearer and adds fuller sound to movies and music. Certified refurbished."
+  },
+  {
+    "id": 2,
+    "name": "Apple iPhone 17 Pro, US Version, 256GB, eSIM, 6.3\" - Fully Unlocked",
+    "price": 200.00,
+    "oldPrice": null,
+    "image": "assets/a/p2.webp",
+    "category": "Electronics",
+    "description": "Fully unlocked 256GB iPhone 17 Pro with a 6.3-inch display and eSIM support. US version."
+  },
+  {
+    "id": 3,
+    "name": "Samsung Galaxy Z Fold7 512GB F966U Unlocked - Excellent",
+    "price": 937.99,
+    "oldPrice": 2199.99,
+    "image": "assets/a/p3.webp",
+    "category": "Electronics",
+    "description": "Foldable 512GB Galaxy Z Fold7, unlocked and in excellent condition."
+  },
+  {
+    "id": 4,
+    "name": "Apple AirPods Pro With Wireless Magsafe Charging Case",
+    "price": 94.76,
+    "oldPrice": 99.75,
+    "image": "assets/a/p4.webp",
+    "category": "Electronics",
+    "description": "AirPods Pro with active noise cancellation and a MagSafe wireless charging case."
+  },
+  {
+    "id": 5,
+    "name": "Shark Stratos Cordless Vacuum, Clean Sense IQ & DuoClean",
+    "price": 139.00,
+    "oldPrice": 454.99,
+    "image": "assets/a/p5.webp",
+    "category": "Home & Garden",
+    "description": "Cordless stick vacuum with Clean Sense IQ and DuoClean technology for carpets and hard floors."
+  },
+  {
+    "id": 6,
+    "name": "Robot Vacuum and Mop Combo with Self-Emptying Base",
+    "price": 369.00,
+    "oldPrice": 699.00,
+    "image": "assets/a/p6.jpg",
+    "category": "Home & Garden",
+    "description": "Robot vacuum and mop in one, with a self-emptying base for hands-free cleaning."
+  },
+  {
+    "id": 7,
+    "name": "Wireless Noise Cancelling Over-Ear Headphones - Black",
+    "price": 219.00,
+    "oldPrice": 399.99,
+    "image": "assets/a/p9.jpg",
+    "category": "Electronics",
+    "description": "Over-ear Bluetooth headphones with active noise cancelling and comfortable all-day wear."
+  },
+  {
+    "id": 8,
+    "name": "Smart Watch Series 10, GPS, 46mm - Certified Refurbished",
+    "price": 249.00,
+    "oldPrice": 429.00,
+    "image": "assets/a/p8.jpg",
+    "category": "Electronics",
+    "description": "46mm GPS smart watch with fitness and health tracking. Certified refurbished."
+  },
+  {
+    "id": 9,
+    "name": "Premium All-Weather Car Floor Mats – Universal Fit",
+    "price": 39.99,
+    "oldPrice": 59.99,
+    "image": "assets/floor_mat.png",
+    "category": "Car Accessories",
+    "description": "Protect your vehicle's interior with these durable all-weather car floor mats. The textured surface helps trap dirt, mud and moisture, while the flexible material is easy to clean and designed for everyday use."
+  }
+]
